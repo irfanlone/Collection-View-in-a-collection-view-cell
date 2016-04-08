@@ -10,16 +10,48 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var data : AnyObject!
+    var dataProvider : MainCollectionViewDataSource!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        data  = [ ["","","",""],
+                  ["","","",""],
+                  ["","","","","","","","","","","",""],
+                  ["","","","","","","","","","","",""],
+                  ["","","","","","","","","","","",""],
+                  ["","","","","","","","","","","","","","","",""],
+                  ["","","",""],
+                  ["","","","","","","","","","","",""],
+                  ["","","","","","","","","","","",""],
+                  ["","","","","","","","","","","",""],
+                  ["","","","","","","","","","","","","","","",""]
+        ]
+        
+        dataProvider = MainCollectionViewDataSource()
+        dataProvider.data = data as! NSArray
+        collectionView.dataSource = dataProvider
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
 
 }
 
+
+extension ViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        guard let cell = cell as? MainCollectionViewCell else { return }
+        let dataProvider = ChildCollectionViewDataSource()
+        dataProvider.data = data[indexPath.row] as! NSArray
+        cell.collectionViewDataSource = dataProvider
+        cell.initializeCollectionView()
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(self.view.frame.size.width, 100)
+    }
+    
+}
