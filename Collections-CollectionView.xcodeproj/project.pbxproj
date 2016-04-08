@@ -15,6 +15,8 @@
 		1712CAD21CB8385D0084027D /* ChildCollectionsViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1712CAD11CB8385D0084027D /* ChildCollectionsViewDataSource.swift */; };
 		1712CAD41CB83B690084027D /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1712CAD31CB83B690084027D /* MainCollectionViewCell.swift */; };
 		1712CAD81CB840B10084027D /* MainCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1712CAD71CB840B10084027D /* MainCollectionViewDataSource.swift */; };
+		1712CADC1CB842F50084027D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1712CADB1CB842F50084027D /* Helpers.swift */; };
+		1712CADE1CB867040084027D /* ChildCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1712CADD1CB867040084027D /* ChildCollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1712CAD11CB8385D0084027D /* ChildCollectionsViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildCollectionsViewDataSource.swift; sourceTree = "<group>"; };
 		1712CAD31CB83B690084027D /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		1712CAD71CB840B10084027D /* MainCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		1712CADB1CB842F50084027D /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		1712CADD1CB867040084027D /* ChildCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildCollectionViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +67,14 @@
 				1712CABF1CB8376C0084027D /* AppDelegate.swift */,
 				1712CAC11CB8376C0084027D /* ViewController.swift */,
 				1712CAD31CB83B690084027D /* MainCollectionViewCell.swift */,
+				1712CAD71CB840B10084027D /* MainCollectionViewDataSource.swift */,
+				1712CAD11CB8385D0084027D /* ChildCollectionsViewDataSource.swift */,
+				1712CADD1CB867040084027D /* ChildCollectionViewDelegate.swift */,
+				1712CADB1CB842F50084027D /* Helpers.swift */,
 				1712CAC31CB8376C0084027D /* Main.storyboard */,
 				1712CAC61CB8376C0084027D /* Assets.xcassets */,
 				1712CAC81CB8376C0084027D /* LaunchScreen.storyboard */,
 				1712CACB1CB8376C0084027D /* Info.plist */,
-				1712CAD11CB8385D0084027D /* ChildCollectionsViewDataSource.swift */,
-				1712CAD71CB840B10084027D /* MainCollectionViewDataSource.swift */,
 			);
 			path = "Collections-CollectionView";
 			sourceTree = "<group>";
@@ -146,9 +152,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1712CAD21CB8385D0084027D /* ChildCollectionsViewDataSource.swift in Sources */,
+				1712CADC1CB842F50084027D /* Helpers.swift in Sources */,
 				1712CAC21CB8376C0084027D /* ViewController.swift in Sources */,
 				1712CAC01CB8376C0084027D /* AppDelegate.swift in Sources */,
 				1712CAD81CB840B10084027D /* MainCollectionViewDataSource.swift in Sources */,
+				1712CADE1CB867040084027D /* ChildCollectionViewDelegate.swift in Sources */,
 				1712CAD41CB83B690084027D /* MainCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

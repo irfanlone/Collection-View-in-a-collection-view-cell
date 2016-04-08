@@ -10,19 +10,16 @@ import UIKit
 
 class ChildCollectionViewDataSource : NSObject, UICollectionViewDataSource {
     
-    var  data : NSArray!
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
+    var data : NSArray!
+        
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.redColor()
+        let reuseIdentifier = "cell"
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        cell.backgroundColor = data[indexPath.row] as? UIColor
         return cell
     }
     
