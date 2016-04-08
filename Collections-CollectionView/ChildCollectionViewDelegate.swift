@@ -15,6 +15,8 @@ class ChildCollectionViewDelegate: NSObject, UICollectionViewDelegate {
         print("cell no: \(indexPath.row) of collection view: \(collectionView.tag)")
     }
     
-    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(75, 75)
+    }
 }
 

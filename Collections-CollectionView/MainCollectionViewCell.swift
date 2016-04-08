@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CollectionViewSelectedProtocol {
+    
+    func collectionViewSelected(collectionViewItem : Int)
+
+}
 
 class MainCollectionViewCell: UICollectionViewCell {
     
@@ -16,6 +21,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     var collectionViewDelegate : UICollectionViewDelegate!
     
     var collectionView : UICollectionView!
+    
+    var delegate : CollectionViewSelectedProtocol!
     
     var collectionViewOffset: CGFloat {
         set {
@@ -62,7 +69,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     }
     
     func buttonAction(sender: UIButton!) {
-        print("collection view number \(collectionView.tag)")
+        self.delegate.collectionViewSelected(collectionView.tag)
     }
     
 }

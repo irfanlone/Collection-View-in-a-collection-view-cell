@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         dataProvider.data = data
         collectionView.dataSource = dataProvider
     }
-
+    
 }
 
 
@@ -32,6 +32,8 @@ extension ViewController : UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         guard let collectionViewCell = cell as? MainCollectionViewCell else { return }
+        
+        collectionViewCell.delegate = self
         
         let dataProvider = ChildCollectionViewDataSource()
         dataProvider.data = data[indexPath.row] as NSArray
@@ -48,9 +50,6 @@ extension ViewController : UICollectionViewDelegate {
         storedOffsets[indexPath.row] = collectionViewCell.collectionViewOffset
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("\(indexPath.row)")
-    }
 }
 
 extension ViewController : UICollectionViewDelegateFlowLayout {
@@ -58,8 +57,28 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(self.view.frame.size.width, 108)
+        return CGSizeMake(self.view.frame.size.width, 130)
     }
 }
 
+
+extension ViewController : CollectionViewSelectedProtocol {
+    
+    // MARK: - CollectionViewSelectedProtocol
+    
+    func collectionViewSelected(collectionViewItem: Int) {
+        
+        let dataProvider = ChildCollectionViewDataSource()
+        dataProvider.data = data[collectionViewItem] as NSArray
+        
+        let delegate = ChildCollectionViewDelegate()
+        
+        let VC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewControllerWithIdentifier("DetailView") as! DetailViewController
+        VC.dataSource = dataProvider
+        VC.delegate = delegate
+        
+        navigationController?.pushViewController(VC, animated: true)
+    }
+    
+}
 
