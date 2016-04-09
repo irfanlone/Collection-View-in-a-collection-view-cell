@@ -17,8 +17,7 @@ class MainCollectionViewDataSource : NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let reuseIdentifier = "MainCollectionViewCell"
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseMainCollectionViewCellIdentifier, forIndexPath: indexPath)
         return cell
     }
     

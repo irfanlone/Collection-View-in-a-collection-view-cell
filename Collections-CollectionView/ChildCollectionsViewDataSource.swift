@@ -17,9 +17,11 @@ class ChildCollectionViewDataSource : NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let reuseIdentifier = "cell"
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseChildCollectionViewCellIdentifier, forIndexPath: indexPath)
+        
         cell.backgroundColor = data[indexPath.row] as? UIColor
+        
         return cell
     }
     

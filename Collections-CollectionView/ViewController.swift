@@ -8,6 +8,10 @@
 
 import UIKit
 
+let reuseMainCollectionViewCellIdentifier = "MainCollectionViewCellIdentifier"
+let reuseChildCollectionViewCellIdentifier = "ChildCollectionViewCellIdentifier"
+
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -52,12 +56,13 @@ extension ViewController : UICollectionViewDelegate {
     
 }
 
+
 extension ViewController : UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(self.view.frame.size.width, 130)
+        return CGSizeMake(self.view.frame.size.width, 140)
     }
 }
 
@@ -68,16 +73,16 @@ extension ViewController : CollectionViewSelectedProtocol {
     
     func collectionViewSelected(collectionViewItem: Int) {
         
-        let dataProvider = ChildCollectionViewDataSource()
+        let dataProvider = ChildCollectionViewDataSource() // You can choose to create a new data source and feed it the same data
         dataProvider.data = data[collectionViewItem] as NSArray
         
-        let delegate = ChildCollectionViewDelegate()
+        let delegate = ChildCollectionViewDelegate() // You can choose to create a new CollectionViewDelegate for detailViewController
         
-        let VC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewControllerWithIdentifier("DetailView") as! DetailViewController
-        VC.dataSource = dataProvider
-        VC.delegate = delegate
+        let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewControllerWithIdentifier("DetailView") as! DetailViewController
+        detailVC.dataSource = dataProvider
+        detailVC.delegate = delegate
         
-        navigationController?.pushViewController(VC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }

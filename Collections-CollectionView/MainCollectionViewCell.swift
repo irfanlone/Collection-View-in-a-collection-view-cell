@@ -15,7 +15,7 @@ protocol CollectionViewSelectedProtocol {
 }
 
 class MainCollectionViewCell: UICollectionViewCell {
-    
+        
     var collectionViewDataSource : UICollectionViewDataSource!
     
     var collectionViewDelegate : UICollectionViewDelegate!
@@ -44,7 +44,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         flowLayout.scrollDirection = .Horizontal
         
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flowLayout)
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseChildCollectionViewCellIdentifier)
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.dataSource = self.collectionViewDataSource
         collectionView.delegate = self.collectionViewDelegate

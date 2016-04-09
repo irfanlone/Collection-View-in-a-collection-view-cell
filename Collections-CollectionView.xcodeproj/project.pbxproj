@@ -76,11 +76,11 @@
 				1712CADD1CB867040084027D /* ChildCollectionViewDelegate.swift */,
 				1712CADB1CB842F50084027D /* Helpers.swift */,
 				1712CAC31CB8376C0084027D /* Main.storyboard */,
+				1712CADF1CB86E680084027D /* DetailViewController.swift */,
+				1712CAE11CB86E7C0084027D /* DetailView.storyboard */,
 				1712CAC61CB8376C0084027D /* Assets.xcassets */,
 				1712CAC81CB8376C0084027D /* LaunchScreen.storyboard */,
 				1712CACB1CB8376C0084027D /* Info.plist */,
-				1712CADF1CB86E680084027D /* DetailViewController.swift */,
-				1712CAE11CB86E7C0084027D /* DetailView.storyboard */,
 			);
 			path = "Collections-CollectionView";
 			sourceTree = "<group>";
