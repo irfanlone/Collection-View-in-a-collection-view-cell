@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         dataProvider = MainCollectionViewDataSource()
-        dataProvider.data = data
+        dataProvider.data = data as NSArray
         collectionView.dataSource = dataProvider
     }
     
@@ -34,7 +34,7 @@ extension ViewController : UICollectionViewDelegate {
     
     // MARK: - UICollectionViewDelegate
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let collectionViewCell = cell as? MainCollectionViewCell else { return }
         
         collectionViewCell.delegate = self
@@ -49,7 +49,7 @@ extension ViewController : UICollectionViewDelegate {
         collectionViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
     }
     
-    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let collectionViewCell = cell as? MainCollectionViewCell else { return }
         storedOffsets[indexPath.row] = collectionViewCell.collectionViewOffset
     }
@@ -61,8 +61,8 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(self.view.frame.size.width, 140)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.size.width, height: 140)
     }
 }
 
@@ -71,14 +71,14 @@ extension ViewController : CollectionViewSelectedProtocol {
     
     // MARK: - CollectionViewSelectedProtocol
     
-    func collectionViewSelected(collectionViewItem: Int) {
+    func collectionViewSelected(_ collectionViewItem: Int) {
         
         let dataProvider = ChildCollectionViewDataSource() // You can choose to create a new data source and feed it the same data
         dataProvider.data = data[collectionViewItem] as NSArray
         
         let delegate = ChildCollectionViewDelegate() // You can choose to create a new CollectionViewDelegate for detailViewController
         
-        let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewControllerWithIdentifier("DetailView") as! DetailViewController
+        let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
         detailVC.dataSource = dataProvider
         detailVC.delegate = delegate
         

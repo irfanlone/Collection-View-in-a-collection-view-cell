@@ -10,7 +10,7 @@ import UIKit
 
 protocol CollectionViewSelectedProtocol {
     
-    func collectionViewSelected(collectionViewItem : Int)
+    func collectionViewSelected(_ collectionViewItem : Int)
 
 }
 
@@ -34,18 +34,18 @@ class MainCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func initializeCollectionViewWithDataSource<D: protocol<UICollectionViewDataSource>,E: protocol<UICollectionViewDelegate>>(dataSource: D, delegate :E, forRow row: Int) {
+    func initializeCollectionViewWithDataSource<D: UICollectionViewDataSource,E: UICollectionViewDelegate>(_ dataSource: D, delegate :E, forRow row: Int) {
         
         self.collectionViewDataSource = dataSource
         
         self.collectionViewDelegate = delegate
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .Horizontal
+        flowLayout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flowLayout)
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseChildCollectionViewCellIdentifier)
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseChildCollectionViewCellIdentifier)
+        collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self.collectionViewDataSource
         collectionView.delegate = self.collectionViewDelegate
         collectionView.tag = row
@@ -59,16 +59,16 @@ class MainCollectionViewCell: UICollectionViewCell {
         frame.size.height = 25
         
         let button = UIButton(frame: frame)
-        button.setTitle("Details >", forState: .Normal)
-        button.setTitleColor(UIColor.purpleColor(), forState: .Normal)
+        button.setTitle("Details >", for: UIControlState())
+        button.setTitleColor(UIColor.purple, for: UIControlState())
         button.titleLabel?.font = UIFont(name: "Gillsans", size: 14)
-        button.addTarget(self, action: #selector(MainCollectionViewCell.buttonAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(MainCollectionViewCell.buttonAction(_:)), for: UIControlEvents.touchUpInside)
         self.addSubview(button)
 
         collectionView.reloadData()
     }
     
-    func buttonAction(sender: UIButton!) {
+    func buttonAction(_ sender: UIButton!) {
         self.delegate.collectionViewSelected(collectionView.tag)
     }
     

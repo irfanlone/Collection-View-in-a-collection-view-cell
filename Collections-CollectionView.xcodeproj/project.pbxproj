@@ -118,6 +118,7 @@
 					1712CABB1CB8376C0084027D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = RGST57P8UR;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -282,6 +283,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.irfanprograms.Collections-CollectionView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -293,6 +295,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.irfanprograms.Collections-CollectionView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -315,6 +318,7 @@
 				1712CAD01CB8376C0084027D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
